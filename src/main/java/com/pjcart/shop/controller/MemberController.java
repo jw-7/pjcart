@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @AllArgsConstructor
 public class MemberController {
@@ -41,7 +43,7 @@ public class MemberController {
     }
 
     @PostMapping(value = "/member/signUpProc")
-    public String signUpProc(MemberDTO memberDTO) throws Exception {
+    public String signUpProc(@Valid MemberDTO memberDTO) throws Exception {
         log.info("Sign Up Success");
         memberService.registerMember(memberDTO);
         return "redirect:/member/login";

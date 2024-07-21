@@ -24,8 +24,8 @@ public class MemberService {
         memberMapper.registerMember(memberDTO);
     }
 
-    public MemberDTO getMemberById(String m_id) throws Exception {
-        return memberMapper.getMemberById(m_id);
+    public MemberDTO getMemberById(String m_email) throws Exception {
+        return memberMapper.getMemberById(m_email);
     }
 
     public PasswordEncoder passwordEncoder() {

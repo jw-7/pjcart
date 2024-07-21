@@ -24,14 +24,14 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String m_id = (String) authentication.getPrincipal();
+        String m_email = (String) authentication.getPrincipal();
         String m_pwd = (String) authentication.getCredentials();
 
         PasswordEncoder passwordEncoder = memberService.passwordEncoder();
         UsernamePasswordAuthenticationToken token;
         MemberDTO memberDTO = null;
         try {
-            memberDTO = memberService.getMemberById(m_id);
+            memberDTO = memberService.getMemberById(m_email);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,7 +40,7 @@ public class AuthProvider implements AuthenticationProvider {
             List<GrantedAuthority> roles = new ArrayList<>();
             roles.add(new SimpleGrantedAuthority("MEMBER"));
 
-            token = new UsernamePasswordAuthenticationToken(memberDTO.getM_id(),null,roles);
+            token = new UsernamePasswordAuthenticationToken(memberDTO.getM_email(),null,roles);
             return token;
         }
         throw new BadCredentialsException("No such user or wrong password.");

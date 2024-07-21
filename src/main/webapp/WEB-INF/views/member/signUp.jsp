@@ -15,8 +15,8 @@
                                 <form action="/member/signUpProc" method="post">
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" name="m_id" id="m_id" type="text" placeholder="name@example.com" />
-                                        <label for="m_id">아이디</label>
+                                        <input class="form-control" name="m_email" id="m_email" type="email" placeholder="name@example.com" />
+                                        <label for="m_email">이메일</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" name="m_pwd" id="m_pwd" type="password" placeholder="Password" />
@@ -29,10 +29,6 @@
                                     <div class="form-floating mb-3">
                                         <input class="form-control" name="m_phone" id="m_phone" type="text" placeholder="name@example.com" />
                                         <label for="m_phone">전화번호</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" name="m_email" id="m_email" type="email" placeholder="name@example.com" />
-                                        <label for="m_email">이메일</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" name="m_add" id="m_add" type="text" placeholder="name@example.com" />
