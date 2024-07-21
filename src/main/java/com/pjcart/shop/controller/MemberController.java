@@ -1,6 +1,6 @@
 package com.pjcart.shop.controller;
 
-import com.pjcart.shop.domain.MemberVO;
+import com.pjcart.shop.dto.MemberDTO;
 import com.pjcart.shop.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -41,9 +41,9 @@ public class MemberController {
     }
 
     @PostMapping(value = "/member/signUpProc")
-    public String signUpProc(MemberVO mvo) throws Exception {
+    public String signUpProc(MemberDTO memberDTO) throws Exception {
         log.info("Sign Up Success");
-        memberService.registerMember(mvo);
+        memberService.registerMember(memberDTO);
         return "redirect:/member/login";
     }
 }

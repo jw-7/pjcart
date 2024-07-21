@@ -1,6 +1,6 @@
 package com.pjcart.shop.security;
 
-import com.pjcart.shop.domain.MemberVO;
+import com.pjcart.shop.dto.MemberDTO;
 import com.pjcart.shop.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -29,18 +29,18 @@ public class AuthProvider implements AuthenticationProvider {
 
         PasswordEncoder passwordEncoder = memberService.passwordEncoder();
         UsernamePasswordAuthenticationToken token;
-        MemberVO mvo = null;
+        MemberDTO memberDTO = null;
         try {
-            mvo = memberService.getMemberById(m_id);
+            memberDTO = memberService.getMemberById(m_id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        if(mvo != null && passwordEncoder.matches(m_pwd, mvo.getM_pwd())) {
+        if(memberDTO != null && passwordEncoder.matches(m_pwd, memberDTO.getM_pwd())) {
             List<GrantedAuthority> roles = new ArrayList<>();
             roles.add(new SimpleGrantedAuthority("MEMBER"));
 
-            token = new UsernamePasswordAuthenticationToken(mvo.getM_id(),null,roles);
+            token = new UsernamePasswordAuthenticationToken(memberDTO.getM_id(),null,roles);
             return token;
         }
         throw new BadCredentialsException("No such user or wrong password.");

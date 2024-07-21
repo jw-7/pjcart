@@ -1,14 +1,11 @@
-package com.pjcart.shop.domain;
+package com.pjcart.shop.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 
 import java.sql.Timestamp;
 
 @Data
-@ToString
-public class MemberVO {
+public class MemberDTO {
     private Integer id; // 회원번호
     private String m_id; // 회원아이디
     private String m_pwd; // 회원 비밀번호

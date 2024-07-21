@@ -1,6 +1,6 @@
 package com.pjcart.shop.service;
 
-import com.pjcart.shop.domain.MemberVO;
+import com.pjcart.shop.dto.MemberDTO;
 import com.pjcart.shop.mapper.MemberMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -19,12 +19,12 @@ public class MemberService {
 
     private MemberMapper memberMapper;
 
-    public void registerMember(MemberVO mvo) throws Exception {
-        mvo.setM_pwd(passwordEncoder.encode(mvo.getM_pwd()));
-        memberMapper.registerMember(mvo);
+    public void registerMember(MemberDTO memberDTO) throws Exception {
+        memberDTO.setM_pwd(passwordEncoder.encode(memberDTO.getM_pwd()));
+        memberMapper.registerMember(memberDTO);
     }
 
-    public MemberVO getMemberById(String m_id) throws Exception {
+    public MemberDTO getMemberById(String m_id) throws Exception {
         return memberMapper.getMemberById(m_id);
     }
 
