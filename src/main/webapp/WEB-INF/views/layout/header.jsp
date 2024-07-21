@@ -43,7 +43,7 @@
                 </button>
             </form>
 
-            <button class="btn btn-outline-dark" onclick="location.href='/signIn'">
+            <button class="btn btn-outline-dark" onclick="location.href='/member/login'">
                 Login
             </button>
 

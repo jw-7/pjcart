@@ -3,5 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pjcart.shop.mapper.MemberMapper">
+    <insert id="registerMember">
+        INSERT INTO member(m_id,m_pwd,m_name,m_phone,m_email,m_add,m_detailadd,m_regdate)
+        VALUES (#{m_id},#{m_pwd},#{m_name},#{m_phone},#{m_email},#{m_add},#{m_detailadd},now())
+    </insert>
 
+    <select id="getMemberById" resultType="com.pjcart.shop.domain.MemberVO">
+        SELECT *
+        FROM member
+        WHERE id = #{id}
+    </select>
 </mapper>
