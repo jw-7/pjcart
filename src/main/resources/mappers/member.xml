@@ -13,4 +13,10 @@
         FROM member
         WHERE m_email = #{m_email}
     </select>
+
+    <select id="emailCheck" resultType="Integer">
+        SELECT COUNT(m_email)
+        FROM member
+        WHERE m_email = #{m_email}
+    </select>
 </mapper>

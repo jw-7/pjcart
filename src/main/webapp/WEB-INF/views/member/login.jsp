@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                         <a class="small" href="/findPwd">비밀번호 찾기</a>
-                                        <a class="btn btn-primary" href="index.html">로그인</a>
+                                        <a class="btn btn-dark" href="index.html">로그인</a>
                                     </div>
                                 </form>
                             </div>

@@ -11,6 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 
@@ -47,5 +49,13 @@ public class MemberController {
         log.info("Sign Up Success");
         memberService.registerMember(memberDTO);
         return "redirect:/member/login";
+    }
+
+    @PostMapping(value = "/emailCheck")
+    @ResponseBody
+    public int emailCheck(@RequestParam("m_email") String m_email) throws Exception {
+        log.info("Email Check Ajax Success");
+        int result = memberService.emailCheck(m_email);
+        return result;
     }
 }

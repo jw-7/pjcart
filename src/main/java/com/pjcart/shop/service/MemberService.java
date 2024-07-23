@@ -28,6 +28,10 @@ public class MemberService {
         return memberMapper.getMemberById(m_email);
     }
 
+    public int emailCheck(String m_email) throws  Exception {
+        return memberMapper.emailCheck(m_email);
+    }
+
     public PasswordEncoder passwordEncoder() {
         return this.passwordEncoder;
     }

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta name="_csrf_header" content="${_csrf.headerName}">
+    <meta name="_csrf" content="${_csrf.token}">
     <title>Shop Homepage - Start Bootstrap Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/index/assets/favicon.ico" />
@@ -43,7 +45,7 @@
                 </button>
             </form>
 
-            <button class="btn btn-outline-dark" onclick="location.href='/signIn'">
+            <button class="btn btn-outline-dark" onclick="location.href='/member/login'">
                 Login
             </button>
 
